@@ -2,6 +2,7 @@ class TasksController < ApplicationController
 	before_action :authenticate_user!
 
 # project_tasks GET   /projects/:project_id/tasks(.:format)  tasks#index
+# http://localhost:3000/projects/30/tasks/
 	def index
 		@project = Project.find(params[:project_id])
 		@tasks = @project.tasks

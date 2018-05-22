@@ -1,5 +1,11 @@
-<h1> Tasks Index Page </h1>
-<%# hard coded to project 1 for now %>
+
+<div id="taskFrame">
+<h1> Tasks Index Page hello</h1>
+<%# http://localhost:3000/projects/30/tasks/ %>
+
+
+<%= render "task_wrap"%>
+<%= render "list_frame"%>
 
 <div>
     <% @tasks.each do |task| %>
@@ -20,4 +26,5 @@
 
 <%= link_to "New Task", new_project_task_path %>
 
+</div>
 
