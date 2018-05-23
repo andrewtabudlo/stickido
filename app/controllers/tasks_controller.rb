@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 # http://localhost:3000/projects/30/tasks/
 	def index
 		@project = Project.find(params[:project_id])
+		#  all of the tasks with project_id = @project.id
 		@tasks = @project.tasks
 	end
 
