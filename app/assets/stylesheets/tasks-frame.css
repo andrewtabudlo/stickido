@@ -1,3 +1,20 @@
 body {
   background-color: orange;
 }
+#taskFrame {
+  border: dotted purple 3px;
+  overflow-x: scroll;
+}
+#taskFrameInnerWrap {
+  border: dotted 4px green;
+  display: inline-block;
+}
+
+.listFrame {
+  border: dotted yellow 5px;
+  width: 200px;
+  float: left;
+}
+#makeNewList {
+  display: inline-block;
+}

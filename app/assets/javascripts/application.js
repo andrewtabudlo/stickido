@@ -14,4 +14,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require view-selectors
-//= require_tree .
+//= require lists-move.js
+// require_tree .
