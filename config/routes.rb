@@ -7,9 +7,16 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # ask if we are using devise
 	resources :projects do
+<<<<<<< HEAD
 		resources :tasks
 	end
 	resources :stickis
+=======
+	resources :tasks
+  resources :stickis
+  end
+
+>>>>>>> master
 	resources :tags
 	root to: "home#index"
 	# root route
