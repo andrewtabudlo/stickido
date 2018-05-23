@@ -7,7 +7,7 @@
 <div id="taskFrame">
 	<div id="taskFrameInnerWrap">
 
-	<%10.times do%>
+	
     <% @tasks.each do |task| %>
       <div class="listFrame">
 		<p><%= task.name %></p>
@@ -16,12 +16,20 @@
 		<p><%= task.duedate %></p>
 		<p><%= task.project_id %></p>
 		<p><%= task.task_id %></p>
-		
+
+		<%@id = task.id %>
+	
+
+
+
+
+
+
 		<p><%= link_to 'Edit', edit_project_task_path(@project.id, task.id)%> </p>
 <p><%= link_to 'Destroy', project_task_path(@project.id, task.id), method: :delete, data: { confirm: "Are you sure you want to delete '#{task.name}'?" } %></p>
 		</div>
 <% end %>
-<% end %>
+
 
 <ol class='example'>
   <li>First</li>

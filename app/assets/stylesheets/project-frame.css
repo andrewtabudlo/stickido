@@ -48,7 +48,7 @@ header h5 {
 
 /* STICKI FRAME: */
 
-/* #stickiFrame {
+#stickiFrame {
   border: solid blue 3px;
   overflow-x: scroll;
   overflow-y: scroll;
@@ -75,7 +75,7 @@ header h5 {
   position: absolute;
   width: 100px;
   border: solid yellow 1px;
-} */
+}
 
 /* LIST FRAME */
 
