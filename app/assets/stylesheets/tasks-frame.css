@@ -10,13 +10,13 @@ body {
   width: 20000px;
   height: 100vh;
   display: inline-block;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 .listFrame {
   border: dotted yellow 5px;
   overflow-y: scroll;
-  width: 300px;
+  width: 500px;
   float: left;
   margin-left: 20px;
   margin-top: 30px;
