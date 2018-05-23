@@ -1,5 +1,8 @@
 <p>Project Name: <%= @project.name %><p>
 
+
+
+
 <%# http://localhost:3000/projects/30/tasks/ %>
 <%# render "task_wrap"%>
 <%# render "list_frame"%>
@@ -18,17 +21,41 @@
 		<p>project id: <%= task.project_id || ' empty'%></p>
 		<p>task id<%= task.task_id || ' empty'%></p>
 		<%@parent_id= task.id %>
-		<p>Parent id:<%= @parent_id %></p>
+		************************</br>
+		<p>************************Parent id:<%= @parent_id %></p>
 			<%@subtasks = Task.where(task_id: @parent_id) %>
 			<p>subtasks: <%=@subtasks%></p>
 			<%if @subtasks != nil%>
-					<%@subtasks.each do |task| %>
-						
-					<p>id:<%=task.id%></p>
-					<p>parent id:<%=task.task_id%></p>
-						<%=task.content%>
+
 				
+					<%@subtasks.each do |task| %>
+					
+						<div class="listFrameLevelTwo">
+						<p>id:<%=task.id%></p>
+						<p>parent id:<%=task.task_id%></p>
+						task name:  <%=task.name%>
+						<%=task.content%>
+
+					************************
+						<%@parent_id_level_two= task.id %>
+						<%@subtasks_level_two = Task.where(task_id: @parent_id_level_two) %>
+						<%if @subtasks_level_two != nil%>
+							<class = "subTaskTwoWrap">
+								<div>
+								######################
+									<%@subtasks_level_two.each do |task| %>
+										
+										<p>id:<%=task.id%></p>
+										<p>parent id:<%=task.task_id%></p>
+										task name:  <%=task.name%>
+										<%=task.content%>
+									<%end%>
+								######################
+								</div>
+						<%end%>
+						</div>
 				<%end%>	
+				
 			<%end%>
 
 

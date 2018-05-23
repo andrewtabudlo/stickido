@@ -23,6 +23,7 @@ require 'faker'
     @project_ids.push(@project.id)
 end
 
+
 # create tasks to belong to each of the projects that were made
 @project_ids.each do |project_id|
     @level_one_sequence = 1

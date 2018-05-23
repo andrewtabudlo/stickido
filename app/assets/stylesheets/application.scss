@@ -20,3 +20,21 @@
 *= require tasks-frame
 * require_self
 */
+
+.listFrameLevelTwo {
+  border: dotted blue 4px;
+  background: white;
+  margin: 5px;
+  transform: translate(100px, 0px);
+}
+
+.subTaskTwoWrap {
+  border: dotted purple 4px;
+  background: green;
+  margin: 5px;
+  transform: translate(100px, 0px);
+}
+
+.blue {
+  background-color: aqua;
+}
