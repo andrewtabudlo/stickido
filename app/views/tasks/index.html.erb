@@ -18,13 +18,14 @@
 							<li>
 								<div class="individualTaskWrapLevelTwo">
 				  					<p> List Name:  <%=task.name%></p>
+									
 							         <p>List content:  <%=task.content%></p>
 							         <p>List sequence:  <%=task.sequence%></p>
 							         <p>List due:  <%=task.duedate%></p>
 							         <p>List id:  <%=task.id%></p>
 									
 								</div>
-								<ol>
+								<ol hidden>
 									<%@parent_id_two = task.id%>
 									<%@subtasks_two = Task.where(task_id: @parent_id_two)%>
 									<%if @subtasks_two != nil%>
@@ -37,7 +38,7 @@
 									            <p>List due:  <%=task.duedate%></p>
 									            <p>List id:  <%=task.id%></p>
 											</div>
-											<ol>
+											<ol hidden>
 												<%@parent_id_three = task.id%>
 												<%@subtasks_three = Task.where(task_id: @parent_id_three)%>
 												<%if @subtasks_three != nil%>
