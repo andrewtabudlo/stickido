@@ -22,4 +22,5 @@
 //= require view-selectors
 //= require lists
 //= require lists-move.js
-// require_tree .
+//= require sly
+//= require_tree .

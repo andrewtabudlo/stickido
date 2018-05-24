@@ -75,4 +75,18 @@
 	<%end%>
 </div>
 
+<div class="scrollbar">
+	<div class="handle"></div>
+</div>
+  <div class="frame">
+  	<ul class="slidee">
+      <% @duedates.each do |d| %>
+      <li class="border">
+        <%= d.duedate %>
+      </li>
+      <% end %>
+  	</ul>
+  </div>
 
+<%= link_to "New Task", new_project_task_path %>
+</div>

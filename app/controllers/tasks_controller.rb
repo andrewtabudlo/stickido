@@ -10,6 +10,7 @@ class TasksController < ApplicationController
 		@project = Project.find(params[:project_id])
 		#  all of the tasks with project_id = @project.id
 		@tasks = @project.tasks
+		@duedates = Task.select(:duedate).where.not(duedate: nil).distinct.order(duedate: 'ASC')
 	end
 
 # project_task GET   /projects/:project_id/tasks/:id(.:format)  tasks#show
@@ -59,9 +60,6 @@ class TasksController < ApplicationController
 
 	def task_params
 		params.require(:task).permit(:name, :content, :sequence, :duedate, :project_id, :task_id, :id)
-	end 
-		
+	end
+
 end
-
-
-
