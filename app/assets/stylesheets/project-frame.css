@@ -2,7 +2,6 @@
 #screenFrame {
   height: 100vh;
   width: 100vw;
-  /* padding making up for the size of the header */
   padding-top: 3rem;
 }
 
@@ -43,7 +42,6 @@ header h5 {
 #pageFrame {
   height: 100%;
   width: 100%;
-  /* border: dotted orange 5px; */
   display: flex;
   z-index: 5;
 }
@@ -87,11 +85,11 @@ header h5 {
 }
 
 #listFrameInnerWrap {
-  width: 3000px; /* make this width grow on user clicks  */
+  width: 3000px;
   display: flex;
   background-color: gray;
   border: dotted orange 3px;
-  height: 100%; /*limit height to preserve scroll*/
+  height: 100%;
 }
 
 .listWrap {
@@ -171,7 +169,7 @@ or click to change which is on top */
 
 /* CLASSES CHANGED IN JS TO CHANGE THE VIEW OPTION: */
 /* CLASSES FOR THE ROW VIEW: */
-.rowFrame {
+/* .rowFrame {
   flex-direction: column;
 }
 .rowFrameReverse {
@@ -179,9 +177,9 @@ or click to change which is on top */
 }
 .rowItem {
   height: 100%;
-}
+} */
 /* CLASSES FOR THE COLUMN VIEW: */
-.columnFrame {
+/* .columnFrame {
   flex-direction: row;
 }
 .columnFrameReverse {
@@ -189,4 +187,4 @@ or click to change which is on top */
 }
 .columnItem {
   height: 100vh;
-}
+} */

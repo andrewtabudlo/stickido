@@ -1,0 +1,80 @@
+<!--
+
+<ol> 
+	<div> Hello</div>
+  <li>One</li> 
+  <li>Two
+    <ol> 
+      <li>Inner One</li> 
+      <li>inner Two</li> 
+    </ol>
+  </li>
+  <li>Three</li> 
+</ol> 
+-->
+
+
+
+<li>
+<%@task = task%>
+<%= render partial: "list_item", locals: {task: @task} %>
+</li>
+
+
+
+<p>Project Name: <%= @project.name %><p>
+
+<%# http://localhost:3000/projects/30/tasks/ %>
+<%# render "task_wrap"%>
+<%# render "list_frame"%>
+<h1> Tasks Index Page </h1>
+<div id="taskFrame">
+	<div id="taskFrameInnerWrap">
+
+	
+    <% @tasks.each do |task| %>
+      <div class="listFrame">
+		<p>name:<%= task.name || ' empty'%></p>
+		<p>content: <%= task.content || ' empty'%></p>
+		<p>sequence: <%= task.sequence || ' empty' %></p>
+		<p>due date<%= task.duedate || ' empty'%></p>
+		<p>project id: <%= task.project_id || ' empty'%></p>
+		<p>task id<%= task.task_id || ' empty'%></p>
+
+		
+		<%@parent_id= task.id %>
+
+		<%@subtasks = Task.where(task_id: @parent_id) %>
+		<%@subtasks%>
+		<%if @subtasks != nil%>
+			 <%@num = 1%>
+				<%@subtasks.each do |task| %>
+					</br>
+					<%=@num%>
+					<%=task.content%>
+					
+				<%@num += 1%>
+			<%end%>	
+		<%end%>
+
+
+
+		<p><%= link_to 'Edit', edit_project_task_path(@project.id, task.id)%> </p>
+<p><%= link_to 'Destroy', project_task_path(@project.id, task.id), method: :delete, data: { confirm: "Are you sure you want to delete '#{task.name}'?" } %></p>
+		</div>
+<% end %>
+
+
+<ol class='example listWrap'>
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
+</ol>
+<script src='js/jquery-sortable.js'></script>
+
+<%= link_to "New Task", new_project_task_path %>
+
+	</div>
+	<div>make another list</div>
+</div>
+

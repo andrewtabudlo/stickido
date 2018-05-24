@@ -10,13 +10,17 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap
+//= require jquery
+//= require jquery-sortable
+// require bootstrap
 //= require rails-ujs
-//= require turbolinks
+// require turbolinks
 //= require jquery-ui
 //= require lodash
 //= require gridstack
 //= require gridstack.jQueryUI
 //= require view-selectors
+//= require lists
+//= require lists-move.js
 //= require sly
 //= require_tree .

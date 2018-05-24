@@ -1,0 +1,23 @@
+
+	<li>
+        <%=@task.name%>
+        <ol>
+        <%@parent_id = task.id %>
+						<%@subtasks = Task.where(task_id: @parent_id) %>
+						<%if @subtasks != nil %>
+							<%@subtasks.each do |task|%>
+								
+                                        <li>
+										<%@task = task%>
+										<%= render partial: "list_item", locals: {task: @task} %>
+                                        </li>
+										
+			
+							<%end%>
+						<%end %>
+
+        </ol>
+    </li>
+
+
+    
