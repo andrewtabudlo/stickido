@@ -2,7 +2,9 @@ console.log('lists.js linked');
 const listFrames = document.getElementsByClassName('listFrame');
 
 function hideSublist(e) {
-  const nestedList = e.target.firstElementChild;
+  // disable if the element is a paragraph
+  const nestedList = e.target.nextElementSibling;
+  console.log(nestedList);
 
   if (nestedList) {
     let hidden = nestedList.hasAttribute('hidden');
