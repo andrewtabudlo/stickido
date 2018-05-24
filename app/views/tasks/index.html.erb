@@ -3,26 +3,45 @@
 	<div id="taskFrameInnerWrap">
 		<% @tasks.each do |task| %>
 			<div class="listFrameContainer">
-				<ol class="listFrame"> List Name:  <%=task.name%>
-
+				<ol class="listFrame"> 
+				
+				   <div class = "individualTaskWrapLevelOne">
+				     List Name:  <%=task.name%>
+					</div>
 						<%@parent_id = task.id %>
+
 						<%@subtasks = Task.where(task_id: @parent_id) %>
 						<%if @subtasks != nil %>
+
 							<%@subtasks.each do |task|%>
 									<li>
-										<%=task.name%>
-										<%@sub_task_id = task.id%>
-										<%@sub_sub_tasks = Task.where(task_id: @sub_task_id)%>
+										<div class="individualTaskWrapLevelTwo">
+											<%=task.name%>
+											<%@sub_task_id = task.id%>
+											<%@sub_sub_tasks = Task.where(task_id: @sub_task_id)%>
+										</div>
 										<%if @sub_sub_tasks%>
 											<ol>
 											<%@sub_sub_tasks.each do |task|%>
-												<li><%=task.name%> </li>
+
+												<li>
+													<div class="individualTaskWrapLevelThree">
+														<%=task.name%> 
+													</div>
+												</li>
+														
 														<%@sub_sub_task_id = task.id%>
 														<%@sub_sub_sub_tasks = Task.where(task_id: @sub_task_id)%>
 																<%if @sub_sub_sub_tasks%>
+
 																<ol>
 																<%@sub_sub_sub_tasks.each do |task|%>
-																	<li><%=task.name%> </li>	
+																	<li>
+																	<div class="individualTaskWrapLevelFour">
+																	
+																		<%=task.name%> 
+																		<div class="individualTaskWrapLevelThree">
+																	</li>	
 																<%end%>
 																</ol>
 												<%end%>
@@ -35,16 +54,22 @@
 							<%end%>
 						<%end %>
 
-
-
 				</ol>
 		  </div>
 		<%end%>
 	</div>
+	
+</div>
+<div id="timeLineFrame">	
+	<%@date_index = @start_date%>	
+	<%while @date_index < @end_date%>	
+			<div class="dateData">date: <%=@date_index%></div>
+		<%@date_index += 1%>
+	<%end%>
 </div>
 
 
-
+<!--
 
 <ol> 
 	<div> Hello</div>
@@ -57,4 +82,4 @@
   </li>
   <li>Three</li> 
 </ol> 
-
+-->

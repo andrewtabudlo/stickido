@@ -1,9 +1,12 @@
 class TasksController < ApplicationController
 	before_action :authenticate_user!
-
+	require 'faker'
 # project_tasks GET   /projects/:project_id/tasks(.:format)  tasks#index
 # http://localhost:3000/projects/30/tasks/
 	def index
+		@time_span = 14
+		@start_date = 1
+		@end_date = @start_date + @time_span
 		@project = Project.find(params[:project_id])
 		#  all of the tasks with project_id = @project.id
 		@tasks = @project.tasks

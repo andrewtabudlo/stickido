@@ -12,13 +12,14 @@
 //
 //= require jquery
 //= require jquery-sortable
-//= require bootstrap
+// require bootstrap
 //= require rails-ujs
-//= require turbolinks
+// require turbolinks
 //= require jquery-ui
 //= require lodash
 //= require gridstack
 //= require gridstack.jQueryUI
 //= require view-selectors
+//= require lists
 //= require lists-move.js
 // require_tree .
