@@ -1,64 +1,55 @@
 
 <div id="taskFrame">
 	<div id="taskFrameInnerWrap">
-		<% @tasks.each do |task| %>
+		<% @tasks.each do |task|%>
 			<div class="listFrameContainer">
-				<ol class="listFrame"> 
-				
-				   <div class = "individualTaskWrapLevelOne">
-				     List Name:  <%=task.name%>
-					</div>
-						<%@parent_id = task.id %>
+				<div class="individualTaskWrapLevelOne">
+				  <p> List Name:  <%=task.name%></p>
+	              <p>List content:  <%=task.content%></p>
+	              <p>List sequence:  <%=task.sequence%></p>
+	              <p>List due:  <%=task.duedate%></p>
+	              <p>List id:  <%=task.id%></p>
+				</div>
+				<ol class="listFrame">
+					<%@parent_id_one = task.id%>
+					<%@subtasks_one = Task.where(task_id: @parent_id_one)%>
+					<%if @subtasks_one != nil%>
+						<%@subtasks_one.each do |task|%>
+							<li>
+								<div class="individualTaskWrapLevelTwo">
+				  					<p> List Name:  <%=task.name%></p>
+						            <p>List content:  <%=task.content%></p>
+						            <p>List sequence:  <%=task.sequence%></p>
+						            <p>List due:  <%=task.duedate%></p>
+						            <p>List id:  <%=task.id%></p>
+								</div>
+								<ol>
+									<%@parent_id_two = task.id%>
+									<%@subtasks_two = Task.where(task_id: @parent_id_two)%>
+									<%if @subtasks_two != nil%>
+									<%@subtasks_two.each do |task|%>
+										<li>
+											<div class="individualTaskWrapLevelThree">
+					  							<p> List Name:  <%=task.name%></p>
+									            <p>List content:  <%=task.content%></p>
+									            <p>List sequence:  <%=task.sequence%></p>
+									            <p>List due:  <%=task.duedate%></p>
+									            <p>List id:  <%=task.id%></p>
+											</div>
 
-						<%@subtasks = Task.where(task_id: @parent_id) %>
-						<%if @subtasks != nil %>
 
-							<%@subtasks.each do |task|%>
-									<li>
-										<div class="individualTaskWrapLevelTwo">
-											<%=task.name%>
-											<%@sub_task_id = task.id%>
-											<%@sub_sub_tasks = Task.where(task_id: @sub_task_id)%>
-										</div>
-										<%if @sub_sub_tasks%>
-											<ol>
-											<%@sub_sub_tasks.each do |task|%>
-
-												<li>
-													<div class="individualTaskWrapLevelThree">
-														<%=task.name%> 
-													</div>
-												</li>
-														
-														<%@sub_sub_task_id = task.id%>
-														<%@sub_sub_sub_tasks = Task.where(task_id: @sub_task_id)%>
-																<%if @sub_sub_sub_tasks%>
-
-																<ol>
-																<%@sub_sub_sub_tasks.each do |task|%>
-																	<li>
-																	<div class="individualTaskWrapLevelFour">
-																	
-																		<%=task.name%> 
-																		<div class="individualTaskWrapLevelThree">
-																	</li>	
-																<%end%>
-																</ol>
-												<%end%>
-											<%end%>
-											</ol>
-										<%end%>
-									</li>
-								
-									
-							<%end%>
-						<%end %>
-
+											
+										</li>
+									<%end%>	
+								</ol>
+								<%end%>
+							</li>
+						<%end%>
+					<%end%>
 				</ol>
-		  </div>
-		<%end%>
+			</div>
+		<% end %>
 	</div>
-	
 </div>
 <div id="timeLineFrame">	
 	<%@date_index = @start_date%>	
@@ -69,17 +60,3 @@
 </div>
 
 
-<!--
-
-<ol> 
-	<div> Hello</div>
-  <li>One</li> 
-  <li>Two
-    <ol> 
-      <li>Inner One</li> 
-      <li>inner Two</li> 
-    </ol>
-  </li>
-  <li>Three</li> 
-</ol> 
--->

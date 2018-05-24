@@ -92,26 +92,30 @@ body {
 li {
   margin: 0.25rem;
 }
-.individualTaskWrapLevelOne {
+div.individualTaskWrapLevelOne {
   background-color: white;
   padding: 0.25rem;
 }
 
-.individualTaskWrapLevelTwo {
+div.individualTaskWrapLevelTwo {
   background-color: rgba(188, 255, 220, 0.593);
   padding: 0.25rem;
 }
 
-.individualTaskWrapTop {
+div.individualTaskWrapTop {
   background-color: white;
   padding: 0.25rem;
 }
 
-.individualTaskWrapLevelThree {
-  //   background-color: gray;
+div.individualTaskWrapLevelThree {
+  background-color: gray;
 }
 
-.individualTaskWrapLevelFour {
-  //   background-color: rgba(128, 128, 128, 0.531);
+div.individualTaskWrapLevelFour {
+  background-color: rgba(128, 128, 128, 0.531);
   margin: 2px;
+}
+
+.red {
+  color: red;
 }
