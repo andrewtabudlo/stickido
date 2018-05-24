@@ -21,6 +21,37 @@
 * require_self
 */
 
+body {
+  background-color: orange;
+}
+#taskFrame {
+  border: dotted magenta 5px;
+  overflow-x: scroll;
+}
+#taskFrameInnerWrap {
+  border: dotted 10px turquoise;
+  width: 20000px;
+  height: 100vh;
+  display: inline-block;
+  /* overflow-y: hidden; */
+}
+
+// make this slightly larger than the .listFrame
+.listFrameContainer {
+  border: dotted gray 1px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 30px;
+  padding: 1rem;
+}
+
+.listFrame {
+  border: solid black 2px;
+  overflow-y: scroll;
+  width: 500px;
+  //   float: left;
+}
+
 .listFrameLevelTwo {
   border: dotted blue 4px;
   background: white;

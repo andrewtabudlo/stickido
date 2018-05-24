@@ -1,26 +1,3 @@
-body {
-  background-color: orange;
-}
-#taskFrame {
-  border: dotted purple 3px;
-  overflow-x: scroll;
-}
-#taskFrameInnerWrap {
-  border: dotted 4px green;
-  width: 20000px;
-  height: 100vh;
-  display: inline-block;
-  /* overflow-y: hidden; */
-}
-
-.listFrame {
-  border: dotted yellow 5px;
-  overflow-y: scroll;
-  width: 500px;
-  float: left;
-  margin-left: 20px;
-  margin-top: 30px;
-}
 #makeNewList {
   display: inline-block;
 }

@@ -1,81 +1,60 @@
-<p>Project Name: <%= @project.name %><p>
 
-
-
-
-<%# http://localhost:3000/projects/30/tasks/ %>
-<%# render "task_wrap"%>
-<%# render "list_frame"%>
-<h1> Tasks Index Page </h1>
 <div id="taskFrame">
 	<div id="taskFrameInnerWrap">
-<%# array of tasks given by controller%>
+		<% @tasks.each do |task| %>
+			<div class="listFrameContainer">
+				<ol class="listFrame"> List Name:  <%=task.name%>
 
-    <% @tasks.each do |task| %>
-	  <div class="listFrame">
-	  	<p>Task id:<%= task.id %></p>
-		<p>name:<%= task.name || ' empty'%></p>
-		<p>content: <%= task.content || ' empty'%></p>
-		<p>sequence: <%= task.sequence || ' empty' %></p>
-		<p>due date<%= task.duedate || ' empty'%></p>
-		<p>project id: <%= task.project_id || ' empty'%></p>
-		<p>task id<%= task.task_id || ' empty'%></p>
-		<%@parent_id= task.id %>
-		************************</br>
-		<p>************************Parent id:<%= @parent_id %></p>
-			<%@subtasks = Task.where(task_id: @parent_id) %>
-			<p>subtasks: <%=@subtasks%></p>
-			<%if @subtasks != nil%>
-
-				
-					<%@subtasks.each do |task| %>
-					
-						<div class="listFrameLevelTwo">
-						<p>id:<%=task.id%></p>
-						<p>parent id:<%=task.task_id%></p>
-						task name:  <%=task.name%>
-						<%=task.content%>
-
-					************************
-						<%@parent_id_level_two= task.id %>
-						<%@subtasks_level_two = Task.where(task_id: @parent_id_level_two) %>
-						<%if @subtasks_level_two != nil%>
-							<class = "subTaskTwoWrap">
-								<div>
-								######################
-									<%@subtasks_level_two.each do |task| %>
-										
-										<p>id:<%=task.id%></p>
-										<p>parent id:<%=task.task_id%></p>
-										task name:  <%=task.name%>
-										<%=task.content%>
-									<%end%>
-								######################
-								</div>
-						<%end%>
-						</div>
-				<%end%>	
-				
-			<%end%>
+						<%@parent_id = task.id %>
+						<%@subtasks = Task.where(task_id: @parent_id) %>
+						<%if @subtasks != nil %>
+							<%@subtasks.each do |task|%>
+									<li>
+										<%=task.name%>
+										<%@sub_task_id = task.id%>
+										<%@sub_sub_tasks = Task.where(task_id: @sub_task_id)%>
+										<%if @sub_sub_tasks%>
+											<ol>
+											<%@sub_sub_tasks.each do |task|%>
+												<li><%=task.name%> </li>
+														<%@sub_sub_task_id = task.id%>
+														<%@sub_sub_sub_tasks = Task.where(task_id: @sub_task_id)%>
+																<%if @sub_sub_sub_tasks%>
+																<ol>
+																<%@sub_sub_sub_tasks.each do |task|%>
+																	<li><%=task.name%> </li>	
+																<%end%>
+																</ol>
+												<%end%>
+											<%end%>
+											</ol>
+										<%end%>
+									</li>
+								
+									
+							<%end%>
+						<%end %>
 
 
 
-		<p><%= link_to 'Edit', edit_project_task_path(@project.id, task.id)%> </p>
-<p><%= link_to 'Destroy', project_task_path(@project.id, task.id), method: :delete, data: { confirm: "Are you sure you want to delete '#{task.name}'?" } %></p>
-		</div>
-<% end %>
-
-
-<ol class='example'>
-  <li>First</li>
-  <li>Second</li>
-  <li>Third</li>
-</ol>
-
-
-<%= link_to "New Task", new_project_task_path %>
-
+				</ol>
+		  </div>
+		<%end%>
 	</div>
-	<div>make another list</div>
 </div>
+
+
+
+
+<ol> 
+	<div> Hello</div>
+  <li>One</li> 
+  <li>Two
+    <ol> 
+      <li>Inner One</li> 
+      <li>inner Two</li> 
+    </ol>
+  </li>
+  <li>Three</li> 
+</ol> 
 

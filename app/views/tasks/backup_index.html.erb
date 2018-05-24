@@ -1,3 +1,11 @@
+
+<li>
+<%@task = task%>
+<%= render partial: "list_item", locals: {task: @task} %>
+</li>
+
+
+
 <p>Project Name: <%= @project.name %><p>
 
 <%# http://localhost:3000/projects/30/tasks/ %>
