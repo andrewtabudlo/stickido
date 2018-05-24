@@ -1,3 +1,13 @@
+const hidden = document.querySelectorAll('[hidden]');
+// add indicator to all hidden elements
+// console.log(hidden);
+// for (let i = 0; i < hidden.length; i++) {
+//   const hiddenElement = hidden[i];
+//   const indicator = document.createElement('div');
+//   indicator.innerHTML = 'show more';
+//   hiddenElement.appendChild(indicator);
+// }
+
 console.log('lists.js linked');
 const listFrames = document.getElementsByClassName('listFrame');
 
