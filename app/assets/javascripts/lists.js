@@ -8,8 +8,9 @@ function hideSublist(e) {
 
   if (nestedList) {
     let hidden = nestedList.hasAttribute('hidden');
-    const icon = document.createElement('i');
-    icon.className = 'fa fa-caret-down';
+    const icon = document.createElement('SPAN');
+    icon.innerHTML = '[show more!]';
+    // icon.className = 'fa fa-caret-down';
 
     if (!hidden) {
       e.target.appendChild(icon);
